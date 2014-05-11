@@ -1,1 +1,2 @@
-https://github.com/civic-data/gdg-visualization.git
+#!
+curl "http://gdg-report.appspot.com/gdgs" 2>/dev/null | ./process.json.flatten.gdgs.py

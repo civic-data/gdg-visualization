@@ -25,7 +25,8 @@ for i in range(now_millis,0,delta):
     #print i
     sys.stderr.write("%s\n" % datetime.datetime.fromtimestamp(i))
     #print "https://developers.google.com/events/event-markers.json?tag=gdg&start=%s&end=%s" % (i+delta,i)
-    json_data=urllib2.urlopen("https://developers.google.com/events/event-markers.json?tag=gdg&start=%s&end=%s" % (i+delta,i)).read()
+    #json_data=urllib2.urlopen("https://developers.google.com/events/event-markers.json?tag=gdg&start=%s&end=%s" % (i+delta,i)).read()
+    json_data=urllib2.urlopen("https://developers.google.com/events/event-markers.json?tag=gtug&start=%s&end=%s" % (i+delta,i)).read()
     #exit(2)
 
 #exit(1)

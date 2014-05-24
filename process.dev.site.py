@@ -13,6 +13,7 @@ import time
 from pprint import pprint
 
 csvwriter = csv.writer(sys.stdout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+csvwriter2 = csv.writer(sys.stderr, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
 # print datetime.datetime.now()
 now_millis=int(round(time.time()))
@@ -38,6 +39,7 @@ for i in range(now_millis,0,delta):
 
     for item in data:
         row=[]
+        header=[]
         #print type(item)
         #print item
         for key in item:
@@ -49,9 +51,11 @@ for i in range(now_millis,0,delta):
                 for key1 in item[key]:
                     #print key1, item[key][key1]
                     row+=[item[key][key1]]
+                    header+=[key1]
             else:
                 #print key,item[key]
                 row+=[item[key]]
+                header+=[key]
         #csvwriter.writerow([s.encode("utf-8") for s in row])
         encodedrow=[]
         for s in row:
@@ -66,6 +70,7 @@ for i in range(now_millis,0,delta):
             else:
                 encodedrow+=[s.encode("utf-8")]
         csvwriter.writerow(encodedrow)
+        csvwriter2.writerow(header)
 
         #exit(1)
         #name=item['name']

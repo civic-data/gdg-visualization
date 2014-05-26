@@ -72,6 +72,7 @@ for item in data:
                             header2+= [key3]
                             location+=1
         #print map1 , len(map1)
+        print 'len(header2)',len(header2)
         print header2
         print len(data[item])
         for item2 in data[item]:
@@ -83,7 +84,11 @@ for item in data:
                     encodedrow=processitem(encodedrow,item2[headitem])
                 else:
                     #print 'not found: ' , headitem
-                    encodedrow+=[None]
+                    if headitem in ['start','end']:
+                        encodedrow+=[0]
+                    else:
+                        encodedrow+=['']
+            sys.stderr.write('QQQ: %s\n' % len(encodedrow) )
             csvwriter.writerow( encodedrow )
 
 

@@ -60,7 +60,9 @@ for i in range(now_millis,0,delta):
         #csvwriter.writerow([s.encode("utf-8") for s in row])
         encodedrow=[]
         for s in row:
-            if isinstance(s,int):
+            if isinstance(s,dict):
+                encodedrow+=[s]
+            elif isinstance(s,int):
                 encodedrow+=[s]
             elif isinstance(s,list):
                 encodedrow+=[s]

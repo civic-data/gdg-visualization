@@ -27,7 +27,7 @@ set -x
 # bq query "SELECT count(*),year(start) as group1 FROM [gdg.event_history] group by group1 order by group1 desc"
 # bq query "SELECT count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_MONTH(TIMESTAMP_TO_USEC(start)),'%Y-%m-%d') as group1 FROM [gdg.event_history] group by group1 order by group1 desc"
 # bq query "SELECT concat(string(lat),',',string(lng)) as latlng FROM [gdg.event_history] group by latlng order by latlng limit 200"
-bq query --max_rows 5000 "SELECT concat(string(lat),',',string(lng)) as latlng FROM [gdg.event_history] group by latlng order by latlng"
+# bq query --max_rows 5000 "SELECT concat(string(lat),',',string(lng)) as latlng FROM [gdg.event_history] group by latlng order by latlng"
 # Bucketing Results by Timestamp  
 # It's useful to use date and time functions to group query results into buckets corresponding to particular years, months, or days. The following example uses the UTC_USEC_TO_MONTH() function to display how many characters each Wikipedia contributor uses in their revision comments per month.
 # 
@@ -65,3 +65,4 @@ bq query --max_rows 5000 "SELECT concat(string(lat),',',string(lng)) as latlng F
 # | Tawkerbot2                     | 2006-05 |               4434348 |
 # | Cydebot                        | 2006-06 |               3380577 |
 # etc ...
+bq query "SELECT count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_MONTH(TIMESTAMP_TO_USEC(start)),'%Y-%m-%d') as group1 FROM [gdg.gdgx_event_history] group by group1 order by group1 desc"

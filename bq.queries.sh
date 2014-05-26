@@ -65,4 +65,7 @@ set -x
 # | Tawkerbot2                     | 2006-05 |               4434348 |
 # | Cydebot                        | 2006-06 |               3380577 |
 # etc ...
-bq query "SELECT count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_MONTH(TIMESTAMP_TO_USEC(start)),'%Y-%m-%d') as group1 FROM [gdg.gdgx_event_history] group by group1 order by group1 desc"
+# bq query "SELECT count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_MONTH(TIMESTAMP_TO_USEC(start)),'%Y-%m-%d') as group1 FROM [gdg.gdgx_event_history] group by group1 order by group1 desc"
+# belgium
+# bq query "SELECT chapter,start,participants,substring(about,1,10) FROM [gdg.gdgx_event_history] where chapter = '105068877693379070381' order by start"
+bq query "SELECT chapter,start FROM [gdg.gdgx_event_history] where chapter = '105068877693379070381' order by start"

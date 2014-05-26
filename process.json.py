@@ -26,7 +26,7 @@ def processitem(encodedrow,s):
                  elif not s:
                      encodedrow+=[s]
                  else:
-                     encodedrow+=[s.encode("utf-8")]
+                     encodedrow+=[s.replace('\n','|').encode("utf-8")]
                  return encodedrow
 
 csvwriter = csv.writer(sys.stdout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)

@@ -9,4 +9,8 @@
 
 # chapter,about,allDay,end,start,created_at,title,updated_at,iconUrl,participants,__v,location,timezone,_id,geo,tags
 # chapter:string,about:string,allDay:string,end:timestamp,start:timestamp,created_at:timestamp,title:string,updated_at:timestamp,iconUrl:string,participants:integer,__v:string,location:string,timezone:string,_id:string,geo:string,tags:string
-bq load gdg.gdgx_event_history gdgx.csv chapter:string,about:string,allDay:string,end:timestamp,start:timestamp,created_at:timestamp,title:string,updated_at:timestamp,iconUrl:string,participants:integer,__v:string,location:string,timezone:string,_id:string,geo:string,tags:string
+# bq load gdg.gdgx_event_history gdgx.csv chapter:string,about:string,allDay:string,end:timestamp,start:timestamp,created_at:timestamp,title:string,updated_at:timestamp,iconUrl:string,participants:integer,__v:string,location:string,timezone:string,_id:string,geo:string,tags:string
+
+
+# [u'chapter', u'about', u'allDay', u'end', u'start', u'created_at', u'title', u'updated_at', u'iconUrl', u'participants', u'__v', u'location', u'timezone', u'_id', u'geo', u'lat', u'lng', u'tags', u'eventUrl']
+bq load gdg.gdgx_event_history gdgx.full.csv chapter:string,about:string,allDay:string,end:timestamp,start:timestamp,created_at:timestamp,title:string,updated_at:timestamp,iconUrl:string,participants:integer,__v:string,location:string,timezone:string,_id:string,geo:string,lat:string,lng:string,tags:string,eventUrl:string

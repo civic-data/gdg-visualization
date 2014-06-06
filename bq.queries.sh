@@ -72,4 +72,6 @@ set -x
 
 #bq query --max_rows 2000 "SELECT chapter,count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_MONTH(TIMESTAMP_TO_USEC(start)),'%Y-%m-%d') as group1 FROM [gdg.gdgx_event_history] group by group1,chapter order by group1 desc"
 # bq query --max_rows 2000 "SELECT chapter,count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_YEAR(TIMESTAMP_TO_USEC(start)),'%Y') as group1 FROM [gdg.gdgx_event_history] group by group1,chapter order by group1 desc"
-bq query --max_rows 2000 "SELECT chapter,sum(participants),STRFTIME_UTC_USEC(UTC_USEC_TO_YEAR(TIMESTAMP_TO_USEC(start)),'%Y') as group1 FROM [gdg.gdgx_event_history] group by group1,chapter order by group1 desc"
+
+# bq query --max_rows 2000 "SELECT chapter,sum(participants),STRFTIME_UTC_USEC(UTC_USEC_TO_YEAR(TIMESTAMP_TO_USEC(start)),'%Y') as group1 FROM [gdg.gdgx_event_history] group by group1,chapter order by group1 desc"
+bq query --max_rows 2000 "SELECT chapter,count(*),STRFTIME_UTC_USEC(UTC_USEC_TO_YEAR(TIMESTAMP_TO_USEC(start)),'%Y') as group1 FROM [gdg.gdgx_event_history] group by group1,chapter order by group1 desc"

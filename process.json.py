@@ -42,7 +42,7 @@ location=0
 for item in data:
     #print item, type(data[item])
     if (isinstance(data[item], list)):
-        print len(data[item])
+        #print len(data[item])
         #print data[item]
         for item2 in data[item]:
             #print type(item2)
@@ -72,9 +72,9 @@ for item in data:
                             header2+= [key3]
                             location+=1
         #print map1 , len(map1)
-        print 'len(header2)',len(header2)
+        #print 'len(header2)',len(header2)
         print header2
-        print len(data[item])
+        #print len(data[item])
         for item2 in data[item]:
             encodedrow=[]
             for headitem in header2:
